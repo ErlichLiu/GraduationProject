@@ -1,0 +1,332 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    .headbanner{
+        position:relative;
+        height:310px;
+        width:100%;
+    }
+    .subheadbanner{
+        /*position:relative;*/
+        height:300px;
+        width:33.33%;
+        float:left;
+    }
+    .floatpic{
+        font-size:18px;
+        color:white;
+        opacity:78%;
+
+    }
+    .linkbox{
+        position:absolute;
+        width:340px;
+        margin:10px;
+        top:200px;
+
+    }
+    .bodycontent{
+        position:relative;
+        height:100%;
+        width:100%;
+        background-color:aqua;
+    }
+    .ranking{
+        position:relative;
+        float:left;
+        height:2000px;
+        width:15%;
+        background-color:azure;
+    }
+    .content{
+        position:relative;
+        float:left;
+        height:2000px;
+        width:60%;
+    }
+    .sponors{
+        position:relative;
+        float:left;
+        height:2000px;
+        width:25%;
+        background-color:antiquewhite;
+    }
+    .sponorslogo{
+        height:70px;
+        width:120px;
+        margin:10px;
+        background-color:#c4ffef;
+        /*float:left;*/
+    }
+    .subcontent{
+        position:relative;
+        float: left;
+        width: 23%;
+        height: 250px;
+        margin: 5px;
+        /*background-color: aliceblue;*/
+    }
+    .contenttitle{
+        /*position:absolute;*/
+        text-align:center;
+        /*top:50px;*/
+
+    }
+    .contentsummary{
+        /*position:absolute;*/
+        text-align:center;
+        /*top:120px;*/
+        color:darkgray;
+        font-family: cursive;
+        
+    }
+    .contentdatetime{
+        /*position:absolute;*/
+        /*left:8px;
+        bottom:1px;*/
+        color:darkgray;
+    }
+    .imageab{
+        position:absolute;
+    }
+    .rankingList{
+
+    }
+    .contentlinkebox{
+        position:absolute;
+        width:150px;
+        top:50px;
+    }
+    .contentpbox{
+        position:absolute;
+        width:150px;
+        top:130px;
+    }
+    .contenttimebox{
+        position:absolute;
+        width:150px;
+        left:8px;
+        bottom:1px;
+        
+    }
+    .sponsortitle{
+
+    }
+    .sponsorslogolist{
+         float:left;
+    }
+</style>
+<script>
+    $(function(){
+        //GetBanner();
+        GetRanking();
+        GetSubContent();
+        MatchSponsorLogo();
+    })
+    function GetBanner() {
+        $.ajax({
+            type: "POST",
+            url: "/Home/GetBannerData",
+            success: function (data) {
+                var count = 1;
+                var html = "";
+                for (i = 0; i < data.length; i++) {
+                    html += "<div calss = 'subheadbanner' ><img src ='" + data[i].bigpicurl + "' class = 'imageab'><div class='linkbox'><center> <a href = '" + data[i].url + "' class = 'floatpic'>" + data[i].title + "</a></center></div></div>";
+                    count += 1;
+                    if (count > 3) {
+                        break;
+                    }
+                }
+                $(".headbanner").html(html);
+            }
+        });
+    }
+    function GetRanking() {
+        $.ajax({
+            type: "POST",
+            url: "/Home/GetRankingData",
+            success: function (data) {
+                var count = 1;
+                var html = "";
+                for (i = 0; i < data.length; i++) {
+                    html += "<h5 style = 'text-align:center'><a href='" + data[i].url + "' style='color:darkgray'>" + count+". " + data[i].title + "</a></h5><hr />";
+                    count ++;
+                    if (count > 10) {
+                        break;
+                    }
+                }
+                $(".rankingList").html(html);
+            }
+        });
+    }
+    function GetSubContent(){
+        $.ajax({
+            type: "POST",
+            url: "/Home/GetSubContent",
+            success: function (data) {
+                var html = "";
+                for (i = 0; i < data.length; i++) {
+                    html = "<div class = 'subcontent'><img src = '" + data[i].picurl + "' class = 'imageab'/><div class ='contentlinkebox'><h4 class = 'contenttitle'><a href = '" + data[i].url + "'>" + data[i].title + "</a></h4></div><div class = 'contentpbox'><p class = 'contentsummary'>"+data[i].summary+"</p></div><div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div></div>";
+                }
+                $(".content").html(html);
+            }
+        });
+    }
+    function MatchSponsorLogo() {
+        $.ajax({
+            type: "POST",
+            url: "/Home/MatchSponsors",
+            success: function (data) {
+                var html = "";
+                for (i = 0; i < data.length; i++) {
+                    //html += "<div calss = 'sponorslogo' ><img src = '" + data.logourl + "'/></div>";
+                    html += "<div calss = 'sponorslogo' ><a href = '" + data[i].url + "'><img src = '" + data[i].logourl + "'/></a></div>";
+                }
+                $(".sponsorslogolist").html(html);
+            }
+        });
+    }
+</script>
+
+
+<div class="headbanner">
+            @*<div class="subheadbanner" >
+                <img src="~/File/jiehh.png" />
+                        <img src="http://localhost/DayUp/File/jiehh.png" />
+                        <h3 class="floatpic">
+                            电子药丸来了，我们需要担心这些生物“老大哥”吗？
+                        </h3>
+                    </div>
+                    <div class="subheadbanner"style="background-color:antiquewhite;">
+                        <h3 class="floatpic">
+                            关于茶这件事，你到底懂多少？
+                        </h3>
+                    </div>
+                    <div class="subheadbanner">
+                        <h3 class="floatpic">
+                            你也是会格外留意电影配乐的人吗？ 这里有15个碎片信息分享
+                        </h3>
+        <img src="~/File/ceshi.png" />
+                    </div>*@
+    <div calss='subheadbanner'>
+        <img src='/File/ceshi.png' class='imageab'>
+        <div class='linkbox'>
+            <center>
+                <a href='http://www.qdaily.com/cards/47343.html' class='floatpic'>
+                    电子药丸来了，我们需要担心这些生物“老大哥”吗？
+                </a>
+            </center>
+        </div>
+    </div>
+    <div calss='subheadbanner'>
+        <img src='/File/jiehh.png' class='imageab'>
+        <div class='linkbox'>
+            <center>
+                <a href='http://www.qdaily.com/cards/47343.html' class='floatpic'>
+                    测试1
+                </a>
+            </center>
+        </div>
+    </div>
+    
+</div>
+
+<div class="bodycontent">
+
+    <div class="ranking">
+        <center>
+            <h3 style="text-align:center;margin-left:10px;color: darkgrey;
+    font-family: sans-serif;">
+                Ranking
+            </h3>
+            <hr />
+        </center>
+        <div class="rankingList">
+            @*<h4 style="text-align:center">
+                <a href="http://www.nike.com" style="color:darkgray">1.Nike</a>
+                <hr />
+                2.Apple
+                <hr />
+            </h4>*@
+        </div>
+    </div>
+
+    <div class="content">
+        @*<div class="subcontent">
+            <h4 class="contenttitle">
+                100 个有想法的人！
+            </h4>
+            <p class="contentsummary">
+                这里记录了 100 个与众不同，及其有趣……
+            </p>
+            <p class="contentdatetime">
+                11 月 12 日
+            </p>
+        </div>
+        <div class="subcontent">
+            <h4 class="contenttitle">
+                100个有想法的人！
+            </h4>
+            <p class="contentsummary">
+                这里记录了 100 个与众不同，及其有趣……
+            </p>
+            <p class="contentdatetime">
+                11 月 12 日
+            </p>
+        </div>
+        <div class="subcontent">
+            <h4 class="contenttitle">
+                100 个有想法的人！
+            </h4>
+            <p class="contentsummary">
+                这里记录了 100 个与众不同，及其有趣，做着非常有挑战的 n 件你感兴趣的事……
+            </p>
+            <p class="contentdatetime">
+                11 月 12 日
+            </p>
+        </div>*@
+    </div>
+    <div class="sponors">
+        <div class="sponsortitle">
+            <h3 style="text-align:center;margin-left:10px;color: darkgrey;font-family: sans-serif;">
+                Sponsors
+            </h3>
+            <hr />
+        </div>
+        <div class="sponsorslogolist">
+            
+            <div class="sponorslogo">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>*@
