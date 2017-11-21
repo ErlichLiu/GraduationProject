@@ -167,7 +167,7 @@
             success: function (data) {
                 var html = "";
                 for (i = 0; i < data.length; i++) {
-                    html = "<div class = 'subcontent'><img src = '" + data[i].picurl + "' class = 'imageab'/><div class ='contentlinkebox'><h4 class = 'contenttitle'><a href = '" + data[i].url + "'>" + data[i].title + "</a></h4></div><div class = 'contentpbox'><p class = 'contentsummary'>"+data[i].summary+"</p></div><div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div></div>";
+                    html += "<div class = 'subcontent'><img src = '" + data[i].picurl + "' class = 'imageab'/><div class ='contentlinkebox'><h4 class = 'contenttitle'><a href = '" + data[i].url + "'>" + data[i].title + "</a></h4></div><div class = 'contentpbox'><p class = 'contentsummary'>"+data[i].summary+"</p></div><div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div></div>";
                 }
                 $(".content").html(html);
             }
