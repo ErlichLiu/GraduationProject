@@ -63,7 +63,7 @@
         width: 120px;
         margin: 10px;
         background-color: #c4ffef;
-        /*float:left;*/
+        float:left;
     }
 
     .subcontent {
@@ -193,7 +193,7 @@
                 var html = "";
                 for (i = 0; i < data.length; i++) {
                     //html += "<div calss = 'sponorslogo' ><img src = '" + data.logourl + "'/></div>";
-                    html += "<div calss = 'sponorslogo' ><a href = '" + data[i].url + "'><img src = '" + data[i].logourl + "'/></a></div>";
+                    html += "<div class = 'sponorslogo' ><a href = '" + data[i].url + "'><img src = '" + data[i].logourl + "'/></a></div>";
                 }
                 $(".sponsorslogolist").html(html);
             }
