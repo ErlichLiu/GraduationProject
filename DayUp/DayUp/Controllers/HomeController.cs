@@ -27,25 +27,55 @@ namespace DayUp.Controllers
             return View();
         }
         
+        /// <summary>
+        /// 获得 Banner 的数据
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult GetBannerData()
         {
 
             return Json(Dal.ContentSearch.GetBannerData(),JsonRequestBehavior.AllowGet);
         }
+
+        /// <summary>
+        /// 获前10排名数据
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult GetRankingData()
         {
             return Json(Dal.ContentSearch.GetRankingData(),JsonRequestBehavior.AllowGet);
         }
+
+        /// <summary>
+        ///  获得用于填充普通内容的数据
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult GetSubContent()
         {
             return Json(Dal.ContentSearch.GetSubContent(),JsonRequestBehavior.AllowGet);
         }
+
+        /// <summary>
+        /// 获得展示赞助商的数据
+        /// </summary>
+        /// <returns></returns>
         public ActionResult MatchSponsors()
         {
             return Json(Dal.MatchSponsors.MatchSponsorsLogos(),JsonRequestBehavior.AllowGet);
+        }
+
+        /// <summary>
+        /// 返回对于搜索框中包含关键字的数据
+        /// </summary>
+        /// <param name="keyword">搜索框中string类型的关键字</param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult GoSearch(string keyword)
+        {
+            return Json(Dal.ContentSearch.GoSearch(keyword),JsonRequestBehavior.AllowGet);
         }
     }
 }

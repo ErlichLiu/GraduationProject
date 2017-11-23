@@ -199,6 +199,26 @@
             }
         });
     }
+    function GoSearch(keyword) {
+        $.ajax({
+            type: "POST",
+            url: "/Home/GoSearch",
+            data:{
+                keyword:keyword
+            },
+            success: function (data) {
+                if (data.length == 0) {
+                    alert("抱歉，本网站暂未收录与您搜索的关键字相似的内容，请您尝试搜索其他关键字。");
+                } else {
+                    var html = "";
+                    for (i = 0; i < data.length; i++) {
+                        html += "<div class = 'subcontent'><img src = '" + data[i].picurl + "' class = 'imageab'/><div class ='contentlinkebox'><h4 class = 'contenttitle'><a href = '" + data[i].url + "'>" + data[i].title + "</a></h4></div><div class = 'contentpbox'><p class = 'contentsummary'>" + data[i].summary + "</p></div><div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div></div>";
+                    }
+                    $(".content").html(html);
+                }
+            }
+        });
+    }
 </script>
 
 
