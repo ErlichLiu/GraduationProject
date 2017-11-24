@@ -47,6 +47,8 @@ namespace DayUp.Dal
         {
             ContentSearch cs = new ContentSearch();
             var data = from subcontent in cs.db.ContentInfo
+                       //join j in cs.db.UserInfo on subcontent.id equals j.id  into c
+                       //from u in c.DefaultIfEmpty()
                        orderby subcontent.time descending
                        select subcontent;
             return data;

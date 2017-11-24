@@ -35,10 +35,12 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("主页", "Index", "Home")</li>
-                    <li>@Html.ActionLink("关于", "About", "Home")</li>
+                    
+                    @*<li>@Html.ActionLink("获取所有历史内容", "About", "Home")</li>*@
                     <li>@Html.ActionLink("我的收藏夹", "Collection", "Home")</li>
                     <li><input name="searchbar" style="text" id="searchbar" class="searchbar" /></li>\
                     <li><button id="getSearch" class="searchbar" onclick="GoSearch($('#searchbar').val())">搜索</button></li>
+                    <li><button id="getAllData" class="searchbar" onclick="GetAllSubContent()">获取所有历史内容</button></li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

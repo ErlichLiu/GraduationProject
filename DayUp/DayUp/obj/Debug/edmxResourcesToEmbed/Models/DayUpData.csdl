@@ -4,6 +4,7 @@
     <EntitySet Name="SourceInfo" EntityType="DayUpModel.SourceInfo" />
     <EntitySet Name="ContentInfo" EntityType="DayUpModel.ContentInfo" />
     <EntitySet Name="SponsorsInfo" EntityType="DayUpModel.SponsorsInfo" />
+    <EntitySet Name="SrcInfo" EntityType="DayUpModel.SrcInfo" />
     <EntitySet Name="UserInfo" EntityType="DayUpModel.UserInfo" />
   </EntityContainer>
   <EntityType Name="SourceInfo">
@@ -39,6 +40,14 @@
     <Property Name="logourl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="money" Type="Double" />
     <Property Name="url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SrcInfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="websitename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="UserInfo">
     <Key>

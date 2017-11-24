@@ -205,6 +205,9 @@
     <Compile Include="Models\SponsorsInfo.cs">
       <DependentUpon>DayUpData.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SrcInfo.cs">
+      <DependentUpon>DayUpData.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserInfo.cs">
       <DependentUpon>DayUpData.tt</DependentUpon>
     </Compile>

@@ -28,6 +28,7 @@ namespace DayUp.Models
         public virtual DbSet<SourceInfo> SourceInfo { get; set; }
         public virtual DbSet<ContentInfo> ContentInfo { get; set; }
         public virtual DbSet<SponsorsInfo> SponsorsInfo { get; set; }
+        public virtual DbSet<SrcInfo> SrcInfo { get; set; }
         public virtual DbSet<UserInfo> UserInfo { get; set; }
     }
 }

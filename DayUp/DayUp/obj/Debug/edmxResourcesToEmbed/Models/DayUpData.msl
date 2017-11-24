@@ -38,6 +38,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SrcInfo">
+      <EntityTypeMapping TypeName="DayUpModel.SrcInfo">
+        <MappingFragment StoreEntitySet="SrcInfo">
+          <ScalarProperty Name="websitename" ColumnName="websitename" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="UserInfo">
       <EntityTypeMapping TypeName="DayUpModel.UserInfo">
         <MappingFragment StoreEntitySet="UserInfo">

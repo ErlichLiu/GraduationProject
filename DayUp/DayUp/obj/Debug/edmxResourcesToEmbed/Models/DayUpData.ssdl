@@ -34,6 +34,14 @@
     <Property Name="money" Type="float" />
     <Property Name="url" Type="varchar" MaxLength="100" />
   </EntityType>
+  <EntityType Name="SrcInfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="websitename" Type="varchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="UserInfo">
     <Key>
       <PropertyRef Name="id" />
@@ -47,6 +55,7 @@
     <EntitySet Name="ContentInfo" EntityType="Self.ContentInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SourceInfo" EntityType="Self.SourceInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SponsorsInfo" EntityType="Self.SponsorsInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SrcInfo" EntityType="Self.SrcInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>
