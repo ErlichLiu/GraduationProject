@@ -5,6 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DayUpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CollectionInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="50" />
+          <Property Name="url" Type="varchar" MaxLength="50" />
+          <Property Name="content_id" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="ContentInfo">
           <Key>
             <PropertyRef Name="id" />
@@ -20,14 +30,6 @@
           <Property Name="time" Type="varchar" MaxLength="50" />
           <Property Name="claps" Type="int" />
           <Property Name="bigpicurl" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="SourceInfo">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="type" Type="varchar" MaxLength="50" />
-          <Property Name="name" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="SponsorsInfo">
           <Key>
@@ -57,8 +59,8 @@
           <Property Name="userinto" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="DayUpModelStoreContainer">
+          <EntitySet Name="CollectionInfo" EntityType="Self.CollectionInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ContentInfo" EntityType="Self.ContentInfo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SourceInfo" EntityType="Self.SourceInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SponsorsInfo" EntityType="Self.SponsorsInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SrcInfo" EntityType="Self.SrcInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
@@ -68,20 +70,12 @@
     <edmx:ConceptualModels>
       <Schema Namespace="DayUpModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DayUpEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="SourceInfo" EntityType="DayUpModel.SourceInfo" />
           <EntitySet Name="ContentInfo" EntityType="DayUpModel.ContentInfo" />
           <EntitySet Name="SponsorsInfo" EntityType="DayUpModel.SponsorsInfo" />
           <EntitySet Name="SrcInfo" EntityType="DayUpModel.SrcInfo" />
           <EntitySet Name="UserInfo" EntityType="DayUpModel.UserInfo" />
+          <EntitySet Name="CollectionInfo" EntityType="DayUpModel.CollectionInfo" />
         </EntityContainer>
-        <EntityType Name="SourceInfo">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="ContentInfo">
           <Key>
             <PropertyRef Name="id" />
@@ -125,21 +119,22 @@
           <Property Name="userpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="userinto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="CollectionInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="content_id" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DayUpModelStoreContainer" CdmEntityContainer="DayUpEntities1">
-          <EntitySetMapping Name="SourceInfo">
-            <EntityTypeMapping TypeName="DayUpModel.SourceInfo">
-              <MappingFragment StoreEntitySet="SourceInfo">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="type" ColumnName="type" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ContentInfo">
             <EntityTypeMapping TypeName="DayUpModel.ContentInfo">
               <MappingFragment StoreEntitySet="ContentInfo">
@@ -183,6 +178,17 @@
                 <ScalarProperty Name="userinto" ColumnName="userinto" />
                 <ScalarProperty Name="userpassword" ColumnName="userpassword" />
                 <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CollectionInfo">
+            <EntityTypeMapping TypeName="DayUpModel.CollectionInfo">
+              <MappingFragment StoreEntitySet="CollectionInfo">
+                <ScalarProperty Name="content_id" ColumnName="content_id" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

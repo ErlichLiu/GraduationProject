@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DayUp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -76,6 +77,46 @@ namespace DayUp.Controllers
         public ActionResult GoSearch(string keyword)
         {
             return Json(Dal.ContentSearch.GoSearch(keyword),JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Logon()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult MatchUser(string username,string userpassword)
+        {
+            return Json(Dal.UserInfo.MatchUser(username,userpassword),JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult CollectionList()
+        {
+            return View();
+        }
+
+        public ActionResult GetYourList(string ids)
+        {
+            int id = Convert.ToInt16(ids);
+            return Json(Dal.MatchCollectionList.MatchYourList(id),JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult DelLike(string user_id,int id)
+        {
+            DayUpEntities1 db = new DayUpEntities1();
+            CollectionInfo ci = new CollectionInfo();
+            int userid = Convert.ToInt16(user_id);
+           
+            var dat = (from con in db.CollectionInfo
+                       where con.id==id
+                       select con).FirstOrDefault();
+            if(dat != null)
+            {
+               db.CollectionInfo.Remove(dat);
+                db.SaveChanges();
+                return Content("OK");
+            }
+            return Content("False");
         }
     }
 }

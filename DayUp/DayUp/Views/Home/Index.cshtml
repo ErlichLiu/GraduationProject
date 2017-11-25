@@ -128,6 +128,9 @@
     .sponsorslogolist {
         float: left;
     }
+    .like{
+
+    }
 </style>
 <script>
     $(function () {
@@ -144,7 +147,10 @@
                 var count = 1;
                 var html = "";
                 for (i = 0; i < data.length; i++) {
-                    html += "<div calss = 'subheadbanner' style = 'float:left'><img src ='" + data[i].bigpicurl + "'><div class='linkbox'><center> <a href = '" + data[i].url + "' class = 'floatpic'>" + data[i].title + "</a></center></div></div>";
+                    html += "<div calss = 'subheadbanner' style = 'float:left'>\
+                            <img src ='" + data[i].bigpicurl + "'><div class='linkbox'>\
+                            <center> <a href = '" + data[i].url + "' class = 'floatpic'>" + data[i].title + "</a>\
+                            </center></div></div>";
                     count += 1;
                     if (count > 3) {
                         break;
@@ -162,7 +168,8 @@
                 var count = 1;
                 var html = "";
                 for (i = 0; i < data.length; i++) {
-                    html += "<h5 style = 'text-align:center'><a href='" + data[i].url + "' style='color:darkgray'>" + count + ". " + data[i].title + "</a></h5><hr />";
+                    html += "<h5 style = 'text-align:center'><a href='" + data[i].url + "' \
+                            style='color:darkgray'>" + count + ". " + data[i].title + "</a></h5><hr />";
                     count++;
                     if (count > 10) {
                         break;
@@ -186,8 +193,8 @@
                              class = 'imageab'/><div class ='contentlinkebox'><h4 class = 'contenttitle'>\
                             <a href = '" + data[i].url + "'>" + data[i].title + "</a></h4></div>\
                             <div class = 'contentpbox'><p class = 'contentsummary'>" + data[i].summary + "</p>\
-                            </div><div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p>\
-                            </div></div>";
+                            </div><div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div>\
+                            <div class = 'contenttimebox'><button onclick=\"like(\'" + data[i].id + "\')\"></button></div></div>";
                     if(count > 10){
                         break;
                     }
@@ -204,7 +211,8 @@
                 var html = "";
                 for (i = 0; i < data.length; i++) {
                     //html += "<div calss = 'sponorslogo' ><img src = '" + data.logourl + "'/></div>";
-                    html += "<div class = 'sponorslogo' ><a href = '" + data[i].url + "'><img src = '" + data[i].logourl + "'/></a></div>";
+                    html += "<div class = 'sponorslogo' ><a href = '" + data[i].url + "'>\
+                            <img src = '" + data[i].logourl + "'/></a></div>";
                 }
                 $(".sponsorslogolist").html(html);
             }
@@ -225,7 +233,10 @@
                     var count = 0;
                     for (i = 0; i < data.length; i++) {
                         count++;
-                        html += "<div class = 'subcontent'><img src = '" + data[i].picurl + "' class = 'imageab'/><div class ='contentlinkebox'><h4 class = 'contenttitle'><a href = '" + data[i].url + "'>" + data[i].title + "</a></h4></div><div class = 'contentpbox'><p class = 'contentsummary'>" + data[i].summary + "</p></div><div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div></div>";
+                        html += "<div class = 'subcontent'><img src = '" + data[i].picurl + "' class = 'imageab'/>\
+                                <div class ='contentlinkebox'><h4 class = 'contenttitle'><a href = '" + data[i].url + "'>" + data[i].title + "</a>\
+                                </h4></div><div class = 'contentpbox'><p class = 'contentsummary'>" + data[i].summary + "</p></div>\
+                                <div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div></div>";
                     }
                     $(".content").html(html);
                 }
@@ -239,9 +250,36 @@
             success: function (data) {
                 var html = "";
                 for (i = 0; i < data.length; i++) {
-                    html += "<div class = 'subcontent'><img src = '" + data[i].picurl + "' class = 'imageab'/><div class ='contentlinkebox'><h4 class = 'contenttitle'><a href = '" + data[i].url + "'>" + data[i].title + "</a></h4></div><div class = 'contentpbox'><p class = 'contentsummary'>" + data[i].summary + "</p></div><div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div></div>";
+                    html += "<div class = 'subcontent'><img src = '" + data[i].picurl + "' class = 'imageab'/>\
+                            <div class ='contentlinkebox'><h4 class = 'contenttitle'><a href = '" + data[i].url + "'>" + data[i].title + "</a></h4>\
+                            </div><div class = 'contentpbox'><p class = 'contentsummary'>" + data[i].summary + "</p></div>\
+                            <div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div></div>";
                 }
                 $(".content").html(html);
+            }
+        });
+    }
+    function like(id) {
+        if (getCookies("userID") == null) {
+            alert("请登陆后再收藏！");
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/CollectionInfoes/Create",
+            data: {
+                //user_id: "1",
+                user_id: getCookies("userID"),
+                content_id: id
+            },
+            success: function (msg) {
+                if (msg == "OK") {
+                    alert("添加成功!");
+                }
+                else {
+                    alert("添加失败!");
+                }
             }
         });
     }

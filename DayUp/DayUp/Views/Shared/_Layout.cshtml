@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
+    <title>@ViewBag.Title -DayUp</title>
     @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
         <script src="~/Scripts/ErlichLiu.js"></script>
@@ -37,7 +37,7 @@
                     <li>@Html.ActionLink("主页", "Index", "Home")</li>
                     
                     @*<li>@Html.ActionLink("获取所有历史内容", "About", "Home")</li>*@
-                    <li>@Html.ActionLink("我的收藏夹", "Collection", "Home")</li>
+                    <li>@Html.ActionLink("我的收藏夹", "CollectionList", "Home")</li>
                     <li><input name="searchbar" style="text" id="searchbar" class="searchbar" /></li>\
                     <li><button id="getSearch" class="searchbar" onclick="GoSearch($('#searchbar').val())">搜索</button></li>
                     <li><button id="getAllData" class="searchbar" onclick="GetAllSubContent()">获取所有历史内容</button></li>

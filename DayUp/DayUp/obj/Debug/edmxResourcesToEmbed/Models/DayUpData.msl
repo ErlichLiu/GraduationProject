@@ -1,15 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DayUpModelStoreContainer" CdmEntityContainer="DayUpEntities1">
-    <EntitySetMapping Name="SourceInfo">
-      <EntityTypeMapping TypeName="DayUpModel.SourceInfo">
-        <MappingFragment StoreEntitySet="SourceInfo">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="type" ColumnName="type" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ContentInfo">
       <EntityTypeMapping TypeName="DayUpModel.ContentInfo">
         <MappingFragment StoreEntitySet="ContentInfo">
@@ -53,6 +44,17 @@
           <ScalarProperty Name="userinto" ColumnName="userinto" />
           <ScalarProperty Name="userpassword" ColumnName="userpassword" />
           <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CollectionInfo">
+      <EntityTypeMapping TypeName="DayUpModel.CollectionInfo">
+        <MappingFragment StoreEntitySet="CollectionInfo">
+          <ScalarProperty Name="content_id" ColumnName="content_id" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
