@@ -175,6 +175,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SponsorsInfoesController.cs" />
+    <Compile Include="Controllers\SrcInfoesController.cs" />
     <Compile Include="Controllers\UserInfoesController.cs" />
     <Compile Include="Dal\ContentSearch.cs" />
     <Compile Include="Dal\MatchCollectionList.cs" />
@@ -320,6 +321,12 @@
     <Content Include="Views\Home\LikeList.cshtml" />
     <Content Include="Views\Home\GetYourList.cshtml" />
     <Content Include="Views\Home\CollectionList.cshtml" />
+    <Content Include="Views\Home\Manager.cshtml" />
+    <Content Include="Views\SrcInfoes\Create.cshtml" />
+    <Content Include="Views\SrcInfoes\Delete.cshtml" />
+    <Content Include="Views\SrcInfoes\Details.cshtml" />
+    <Content Include="Views\SrcInfoes\Edit.cshtml" />
+    <Content Include="Views\SrcInfoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

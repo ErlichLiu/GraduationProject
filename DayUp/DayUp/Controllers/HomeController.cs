@@ -104,9 +104,8 @@ namespace DayUp.Controllers
         public ActionResult DelLike(string user_id,int id)
         {
             DayUpEntities1 db = new DayUpEntities1();
-            CollectionInfo ci = new CollectionInfo();
+            //CollectionInfo ci = new CollectionInfo();
             int userid = Convert.ToInt16(user_id);
-           
             var dat = (from con in db.CollectionInfo
                        where con.id==id
                        select con).FirstOrDefault();
@@ -117,6 +116,10 @@ namespace DayUp.Controllers
                 return Content("OK");
             }
             return Content("False");
+        }
+        public ActionResult Manager()
+        {
+            return View();
         }
     }
 }
