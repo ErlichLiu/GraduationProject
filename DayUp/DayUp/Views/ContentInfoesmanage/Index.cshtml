@@ -4,42 +4,52 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>内容管理</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("添加内容", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.title)
+            标题：
+            @*@Html.DisplayNameFor(model => model.title)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.summary)
+            概述：
+            @*@Html.DisplayNameFor(model => model.summary)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.picurl)
+            小图片地址：
+            @*@Html.DisplayNameFor(model => model.picurl)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.url)
+            网址：
+            @*@Html.DisplayNameFor(model => model.url)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.hot)
+            热度：
+            @*@Html.DisplayNameFor(model => model.hot)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.websitename)
+            网站名称：
+            @*@Html.DisplayNameFor(model => model.websitename)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.type)
+            内容分类(可以多标签)：
+            @*@Html.DisplayNameFor(model => model.type)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.time)
+            添加内容时间：
+            @*@Html.DisplayNameFor(model => model.time)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.claps)
+            备用字段：
+            @*@Html.DisplayNameFor(model => model.claps)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.bigpicurl)
+            首页大图地址：
+            @*@Html.DisplayNameFor(model => model.bigpicurl)*@
         </th>
         <th></th>
     </tr>
@@ -77,9 +87,9 @@
             @Html.DisplayFor(modelItem => item.bigpicurl)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("编辑", "Edit", new { id=item.id }) |
+            @Html.ActionLink("详细信息", "Details", new { id=item.id }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.id })
         </td>
     </tr>
 }

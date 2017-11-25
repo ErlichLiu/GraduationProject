@@ -1,12 +1,61 @@
 ﻿@using Microsoft.AspNet.Identity
-<script>
-    function Js()
-    {
+@*<script>
+         $(function () {
+            
+        })
+        function different()
+        {
+            var html = "";
+            if (getCookies("userID")!= null)
+            {
+
+                html += "<li>你好," + getCookies("userID") + "!</li>\
+                            <li>@Html.ActionLink("切换账号", "Logon", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>";
+                $(".nav navbar-nav navbar-right").html(html);
+            }
+            else
+            {
+                html += "<li>@Html.ActionLink("注册", "Create", "UserInfoes", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>\
+                         <li>@Html.ActionLink("登录", "Logon", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>";
+                $(".nav navbar-nav navbar-right").html(html);
+            }
+
+        }
+    </script>
+    <ul class="nav navbar-nav navbar-right">
+    </ul>*@
+@*<script>
+    $(function () {
+        if (getCookies("userID") != null) {
+            var html = "";
+            $.ajax({
+                type: "POST",
+                url: "/Home/GetUserName",
+                data: {
+                    //user_id: "1",
+                    id: getCookies("userID"),
+                    
+                },
+                success: function (msg) {
+                    if (msg != null ) {
+                        html += "你好，"+msg+"！";
+                        $(".appedname").html(html);
+                    }
+                    else {
+                        html += "你好";
+                        $(".appedname").html(html);
+                    }
+                }
+            });
+        }
+    })
+</script>
+<style>
+    .appedname{
 
     }
-</script>
-
-@if (Request.IsAuthenticated)
+</style>*@
+@if (Request.Cookies != null)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
@@ -14,9 +63,10 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink("你好!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @Html.Label("你好!")
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">注销</a></li>
+        <li>@Html.ActionLink("切换账号", "Logon", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        @*<li><a href="javascript:document.getElementById('logoutForm').submit()">注销</a></li>*@
     </ul>
     }
 }

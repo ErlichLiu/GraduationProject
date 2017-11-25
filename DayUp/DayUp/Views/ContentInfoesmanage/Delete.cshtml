@@ -12,7 +12,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.title)
+           标题：
         </dt>
 
         <dd>
@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.summary)
+            概述：
         </dt>
 
         <dd>
@@ -28,7 +28,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.picurl)
+           小图地址：
         </dt>
 
         <dd>
@@ -36,7 +36,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.url)
+           网址：
         </dt>
 
         <dd>
@@ -44,7 +44,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.hot)
+            热度：
         </dt>
 
         <dd>
@@ -52,7 +52,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.websitename)
+            网站名称：
         </dt>
 
         <dd>
@@ -60,7 +60,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.type)
+           内容标签：
         </dt>
 
         <dd>
@@ -68,7 +68,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.time)
+           内容添加时间：
         </dt>
 
         <dd>
@@ -76,7 +76,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.claps)
+           备用字段：
         </dt>
 
         <dd>
@@ -84,7 +84,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.bigpicurl)
+            首页大图地址：
         </dt>
 
         <dd>
@@ -97,8 +97,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="删除" class="btn btn-default" /> |
+            @Html.ActionLink("返回列表", "Index")
         </div>
     }
 </div>

@@ -129,7 +129,9 @@
         float: left;
     }
     .like{
-
+        position:absolute;
+        right:7px;
+        bottom:7px;
     }
 </style>
 <script>
@@ -194,7 +196,7 @@
                             <a href = '" + data[i].url + "'>" + data[i].title + "</a></h4></div>\
                             <div class = 'contentpbox'><p class = 'contentsummary'>" + data[i].summary + "</p>\
                             </div><div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div>\
-                            <div class = 'contenttimebox'><button onclick=\"like(\'" + data[i].id + "\')\"></button></div></div>";
+                            <div class = 'like'><button onclick=\"like(\'" + data[i].id + "\')\">收藏</button></div></div>";
                     if(count > 10){
                         break;
                     }
@@ -253,7 +255,8 @@
                     html += "<div class = 'subcontent'><img src = '" + data[i].picurl + "' class = 'imageab'/>\
                             <div class ='contentlinkebox'><h4 class = 'contenttitle'><a href = '" + data[i].url + "'>" + data[i].title + "</a></h4>\
                             </div><div class = 'contentpbox'><p class = 'contentsummary'>" + data[i].summary + "</p></div>\
-                            <div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div></div>";
+                            <div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div>\
+                            <div class = 'like'><button onclick=\"like(\'" + data[i].id + "\')\">收藏</button></div></div>";
                 }
                 $(".content").html(html);
             }

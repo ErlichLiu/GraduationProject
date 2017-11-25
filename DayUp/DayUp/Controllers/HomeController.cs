@@ -90,22 +90,37 @@ namespace DayUp.Controllers
             return Json(Dal.UserInfo.MatchUser(username,userpassword),JsonRequestBehavior.AllowGet);
         }
 
+        /// <summary>
+        /// 展示用户个人收藏内容列表
+        /// </summary>
+        /// <returns></returns>
         public ActionResult CollectionList()
         {
             return View();
         }
 
+        /// <summary>
+        /// 获取用户个人内容收藏列表
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
         public ActionResult GetYourList(string ids)
         {
             int id = Convert.ToInt16(ids);
             return Json(Dal.MatchCollectionList.MatchYourList(id),JsonRequestBehavior.AllowGet);
         }
 
+        /// <summary>
+        /// 删除用户的个人内容收藏
+        /// </summary>
+        /// <param name="user_id"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult DelLike(string user_id,int id)
         {
             DayUpEntities1 db = new DayUpEntities1();
             //CollectionInfo ci = new CollectionInfo();
-            int userid = Convert.ToInt16(user_id);
+            //int userid = Convert.ToInt16(user_id);
             var dat = (from con in db.CollectionInfo
                        where con.id==id
                        select con).FirstOrDefault();
@@ -117,9 +132,29 @@ namespace DayUp.Controllers
             }
             return Content("False");
         }
+
+        /// <summary>
+        /// 管理员页面
+        /// </summary>
+        /// <returns></returns>
+        
         public ActionResult Manager()
         {
             return View();
+        }
+
+        /// <summary>
+        /// 获取 LoginPartial 中显示的用户名
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult GetUserName(int id)
+        {
+            DayUpEntities1 db = new DayUpEntities1();
+            var name = (from na in db.UserInfo
+                       where na.id == id
+                       select na.username).FirstOrDefault();
+            return Content(name);
         }
     }
 }
