@@ -63,7 +63,8 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.Label("你好!")
+            <a>您好！</a>
+            @*@Html.Label("你好!")*@
         </li>
         <li>@Html.ActionLink("切换账号", "Logon", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
         @*<li><a href="javascript:document.getElementById('logoutForm').submit()">注销</a></li>*@

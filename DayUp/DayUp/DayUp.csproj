@@ -225,6 +225,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="File\100person.gif" />
+    <Content Include="File\29zinebig.png" />
+    <Content Include="File\29zinelittle.png" />
     <Content Include="File\ceshi.png" />
     <Content Include="File\jiehh.png" />
     <Content Include="File\lantouzi.png" />
@@ -250,6 +252,7 @@
     <Content Include="Models\DayUpData.edmx.diagram">
       <DependentUpon>DayUpData.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\123.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ErlichLiu.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
