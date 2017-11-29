@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DayUpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CollectionInfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" />
+    <Property Name="url" Type="varchar" MaxLength="50" />
+    <Property Name="content_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContentInfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" />
+    <Property Name="summary" Type="varchar" MaxLength="100" />
+    <Property Name="picurl" Type="varchar" MaxLength="50" />
+    <Property Name="url" Type="varchar" MaxLength="100" />
+    <Property Name="hot" Type="int" />
+    <Property Name="websitename" Type="varchar" MaxLength="50" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="time" Type="varchar" MaxLength="50" />
+    <Property Name="claps" Type="int" />
+    <Property Name="bigpicurl" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SponsorsInfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="logourl" Type="varchar" MaxLength="50" />
+    <Property Name="money" Type="float" />
+    <Property Name="url" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="SrcInfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="websitename" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="userpassword" Type="varchar" MaxLength="50" />
+    <Property Name="userinto" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="DayUpModelStoreContainer">
+    <EntitySet Name="CollectionInfo" EntityType="Self.CollectionInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContentInfo" EntityType="Self.ContentInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SponsorsInfo" EntityType="Self.SponsorsInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SrcInfo" EntityType="Self.SrcInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

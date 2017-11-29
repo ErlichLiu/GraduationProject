@@ -1,0 +1,104 @@
+﻿@model DayUp.Models.ContentInfo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ContentInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           标题：
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            概述：
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.summary)
+        </dd>
+
+        <dt>
+           小图地址：
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.picurl)
+        </dd>
+
+        <dt>
+           网址：
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.url)
+        </dd>
+
+        <dt>
+            热度：
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hot)
+        </dd>
+
+        <dt>
+            网站名称：
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.websitename)
+        </dd>
+
+        <dt>
+           内容标签：
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.type)
+        </dd>
+
+        <dt>
+           内容添加时间：
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.time)
+        </dd>
+
+        <dt>
+           备用字段：
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.claps)
+        </dd>
+
+        <dt>
+            首页大图地址：
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bigpicurl)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="删除" class="btn btn-default" /> |
+            @Html.ActionLink("返回列表", "Index")
+        </div>
+    }
+</div>

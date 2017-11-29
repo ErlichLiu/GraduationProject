@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Manager";
+}
+
+<h2>管理员</h2>
+<table>
+    <tr>
+        <th>
+            <h3>
+                @Html.ActionLink("内容信息管理", "Index", "ContentInfoesmanage")
+            </h3>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <h3>
+                @Html.ActionLink("用户信息管理", "Index", "UserInfoes")
+            </h3>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <h3>
+                @Html.ActionLink("赞助商管理", "Index", "SponsorsInfoes")
+            </h3>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <h3>
+                @Html.ActionLink("用户收藏夹管理", "Index", "CollectionInfoes")
+            </h3>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <h3>
+                @Html.ActionLink("内容源管理", "Index", "SrcInfoes")
+            </h3>
+        </th>
+    </tr>
+</table>

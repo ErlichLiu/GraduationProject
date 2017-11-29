@@ -1,0 +1,97 @@
+﻿@model IEnumerable<DayUp.Models.ContentInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>内容管理</h2>
+
+<p>
+    @Html.ActionLink("添加内容", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            标题：
+            @*@Html.DisplayNameFor(model => model.title)*@
+        </th>
+        <th>
+            概述：
+            @*@Html.DisplayNameFor(model => model.summary)*@
+        </th>
+        <th>
+            小图片地址：
+            @*@Html.DisplayNameFor(model => model.picurl)*@
+        </th>
+        <th>
+            网址：
+            @*@Html.DisplayNameFor(model => model.url)*@
+        </th>
+        <th>
+            热度：
+            @*@Html.DisplayNameFor(model => model.hot)*@
+        </th>
+        <th>
+            网站名称：
+            @*@Html.DisplayNameFor(model => model.websitename)*@
+        </th>
+        <th>
+            内容分类(可以多标签)：
+            @*@Html.DisplayNameFor(model => model.type)*@
+        </th>
+        <th>
+            添加内容时间：
+            @*@Html.DisplayNameFor(model => model.time)*@
+        </th>
+        <th>
+            备用字段：
+            @*@Html.DisplayNameFor(model => model.claps)*@
+        </th>
+        <th>
+            首页大图地址：
+            @*@Html.DisplayNameFor(model => model.bigpicurl)*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.summary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.picurl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.url)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.websitename)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.claps)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bigpicurl)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.id }) |
+            @Html.ActionLink("详细信息", "Details", new { id=item.id }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

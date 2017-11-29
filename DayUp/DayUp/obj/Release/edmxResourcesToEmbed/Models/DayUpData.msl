@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DayUpModelStoreContainer" CdmEntityContainer="DayUpEntities1">
+    <EntitySetMapping Name="ContentInfo">
+      <EntityTypeMapping TypeName="DayUpModel.ContentInfo">
+        <MappingFragment StoreEntitySet="ContentInfo">
+          <ScalarProperty Name="bigpicurl" ColumnName="bigpicurl" />
+          <ScalarProperty Name="claps" ColumnName="claps" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="websitename" ColumnName="websitename" />
+          <ScalarProperty Name="hot" ColumnName="hot" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="picurl" ColumnName="picurl" />
+          <ScalarProperty Name="summary" ColumnName="summary" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SponsorsInfo">
+      <EntityTypeMapping TypeName="DayUpModel.SponsorsInfo">
+        <MappingFragment StoreEntitySet="SponsorsInfo">
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="money" ColumnName="money" />
+          <ScalarProperty Name="logourl" ColumnName="logourl" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SrcInfo">
+      <EntityTypeMapping TypeName="DayUpModel.SrcInfo">
+        <MappingFragment StoreEntitySet="SrcInfo">
+          <ScalarProperty Name="websitename" ColumnName="websitename" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInfo">
+      <EntityTypeMapping TypeName="DayUpModel.UserInfo">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="userinto" ColumnName="userinto" />
+          <ScalarProperty Name="userpassword" ColumnName="userpassword" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CollectionInfo">
+      <EntityTypeMapping TypeName="DayUpModel.CollectionInfo">
+        <MappingFragment StoreEntitySet="CollectionInfo">
+          <ScalarProperty Name="content_id" ColumnName="content_id" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
