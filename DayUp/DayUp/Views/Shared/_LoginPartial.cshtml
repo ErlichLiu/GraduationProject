@@ -63,7 +63,7 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            <a>您好！</a>
+            @Html.ActionLink("您好！", "Create", "UserInfoes")
             @*@Html.Label("你好!")*@
         </li>
         <li>@Html.ActionLink("切换账号", "Logon", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>

@@ -49,7 +49,7 @@ namespace DayUp.Dal
             var data = from subcontent in cs.db.ContentInfo
                        //join j in cs.db.UserInfo on subcontent.id equals j.id  into c
                        //from u in c.DefaultIfEmpty()
-                       orderby subcontent.time descending
+                       orderby subcontent.id descending
                        select subcontent;
             return data;
         }
