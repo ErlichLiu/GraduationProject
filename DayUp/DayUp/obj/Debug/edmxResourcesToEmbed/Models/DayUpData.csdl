@@ -6,6 +6,7 @@
     <EntitySet Name="SrcInfo" EntityType="DayUpModel.SrcInfo" />
     <EntitySet Name="UserInfo" EntityType="DayUpModel.UserInfo" />
     <EntitySet Name="CollectionInfo" EntityType="DayUpModel.CollectionInfo" />
+    <EntitySet Name="CommenInfo" EntityType="DayUpModel.CommenInfo" />
   </EntityContainer>
   <EntityType Name="ContentInfo">
     <Key>
@@ -46,8 +47,8 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="userpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="userpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="userinto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="CollectionInfo">
@@ -59,5 +60,16 @@
     <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="content_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommenInfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userid" Type="Int32" Nullable="false" />
+    <Property Name="contentid" Type="Int32" Nullable="false" />
+    <Property Name="url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="commen" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

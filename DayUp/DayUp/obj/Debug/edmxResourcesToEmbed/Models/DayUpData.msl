@@ -59,5 +59,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CommenInfo">
+      <EntityTypeMapping TypeName="DayUpModel.CommenInfo">
+        <MappingFragment StoreEntitySet="CommenInfo">
+          <ScalarProperty Name="commen" ColumnName="commen" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="contentid" ColumnName="contentid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

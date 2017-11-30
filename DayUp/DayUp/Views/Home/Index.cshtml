@@ -133,6 +133,11 @@
         right:7px;
         bottom:7px;
     }
+    .latter{
+        position:absolute;
+        right:57px;
+        bottom:7px;
+    }
 </style>
 <script>
     $(function () {
@@ -196,7 +201,8 @@
                             <a href = '" + data[i].url + "'>" + data[i].title + "</a></h4></div>\
                             <div class = 'contentpbox'><p class = 'contentsummary'>" + data[i].summary + "</p>\
                             </div><div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div>\
-                            <div class = 'like'><button onclick=\"like(\'" + data[i].id + "\')\">收藏</button></div></div>";
+                            <div class = 'latter'><button onclick=\"like(\'" + data[i].id + "\')\">+</button></div>\
+                            <div class = 'like'><button onclick=\"latter(\'" + data[i].id + "\')\">收藏</button></div></div>";
                     if(count > 10){
                         break;
                     }
@@ -264,13 +270,37 @@
     }
     function like(id) {
         if (getCookies("userID") == null) {
-            alert("请登陆后再收藏！");
+            alert("请登陆后再添加稍后阅读！");
             return;
         }
 
         $.ajax({
             type: "POST",
             url: "/CollectionInfoes/Create",
+            data: {
+                //user_id: "1",
+                user_id: getCookies("userID"),
+                content_id: id
+            },
+            success: function (msg) {
+                if (msg == "OK") {
+                    alert("添加成功!");
+                }
+                else {
+                    alert("添加失败!");
+                }
+            }
+        });
+    }
+    function latter(id) {
+        if (getCookies("userID") == null) {
+            alert("请登陆后再收藏！");
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/CommenInfo/Create",
             data: {
                 //user_id: "1",
                 user_id: getCookies("userID"),

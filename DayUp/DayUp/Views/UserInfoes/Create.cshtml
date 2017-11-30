@@ -3,53 +3,56 @@
 @{
     ViewBag.Title = "Create";
 }
+<style>
+    body {
+        background-image: url('../../File/background-imag.png');
+    }
+</style>
 
 <h2>注册</h2>
 
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>请填写您的信息</h4>
-        <hr />
-        @Html.ValidationMessage("Name", new { @class = "text-danger" })
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            <label class="control-label col-md-2">用户名</label>
-            @*@Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label col-md-2" })*@
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-        <div class="form-group">
-            <label class="control-label col-md-2">密码</label>
-            @*@Html.LabelFor(model => model.userpassword, htmlAttributes: new { @class = "control-label col-md-2" })*@
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.userpassword, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.userpassword, "", new { @class = "text-danger" })
+        <div class="form-horizontal">
+            <h4>请填写您的信息</h4>
+            <hr />
+            @Html.ValidationMessage("Name", new { @class = "text-danger" })
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                    <p style="color:rgba(255,255,255,0.9)">用户名：</p>
+                    @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label class="control-label col-md-2">您的介绍</label>
-            @*@Html.LabelFor(model => model.userinto, htmlAttributes: new { @class = "control-label col-md-2" })*@
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.userinto, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.userinto, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.userpassword, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    <p style="color:rgba(255,255,255,0.9)">密码：</p>
+                    @Html.EditorFor(model => model.userpassword, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.userpassword, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="注册" class="btn btn-default" />
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.userinto, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    <p style="color:rgba(255,255,255,0.9)">您的介绍：</p>
+                    @Html.EditorFor(model => model.userinto, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.userinto, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
-    </div>
-}
+
+            <div class="form-group"style="margin-right:500px;">
+                <div class="col-md-offset-2 col-md-10" >
+                    <input type="submit" value="注册" class="btn btn-default" /> @Html.ActionLink("已有账号，登录", "Logon", "Home")
+                </div >
+            </div >
+        </div >
+    }
 
 @*<div>
     @Html.ActionLink("Back to List", "Index")

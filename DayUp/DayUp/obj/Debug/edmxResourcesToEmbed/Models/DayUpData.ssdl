@@ -10,6 +10,17 @@
     <Property Name="url" Type="varchar" MaxLength="50" />
     <Property Name="content_id" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="CommenInfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="int" Nullable="false" />
+    <Property Name="contentid" Type="int" Nullable="false" />
+    <Property Name="url" Type="varchar" MaxLength="100" />
+    <Property Name="title" Type="varchar" MaxLength="50" />
+    <Property Name="commen" Type="varchar" MaxLength="1000" />
+  </EntityType>
   <EntityType Name="ContentInfo">
     <Key>
       <PropertyRef Name="id" />
@@ -49,12 +60,13 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="username" Type="varchar" MaxLength="50" />
-    <Property Name="userpassword" Type="varchar" MaxLength="50" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userpassword" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="userinto" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityContainer Name="DayUpModelStoreContainer">
     <EntitySet Name="CollectionInfo" EntityType="Self.CollectionInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CommenInfo" EntityType="Self.CommenInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ContentInfo" EntityType="Self.ContentInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SponsorsInfo" EntityType="Self.SponsorsInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SrcInfo" EntityType="Self.SrcInfo" Schema="dbo" store:Type="Tables" />

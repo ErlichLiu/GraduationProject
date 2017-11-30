@@ -15,6 +15,17 @@
           <Property Name="url" Type="varchar" MaxLength="50" />
           <Property Name="content_id" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="CommenInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" Nullable="false" />
+          <Property Name="contentid" Type="int" Nullable="false" />
+          <Property Name="url" Type="varchar" MaxLength="100" />
+          <Property Name="title" Type="varchar" MaxLength="50" />
+          <Property Name="commen" Type="varchar" MaxLength="1000" />
+        </EntityType>
         <EntityType Name="ContentInfo">
           <Key>
             <PropertyRef Name="id" />
@@ -54,12 +65,13 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="username" Type="varchar" MaxLength="50" />
-          <Property Name="userpassword" Type="varchar" MaxLength="50" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userpassword" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="userinto" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="DayUpModelStoreContainer">
           <EntitySet Name="CollectionInfo" EntityType="Self.CollectionInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommenInfo" EntityType="Self.CommenInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ContentInfo" EntityType="Self.ContentInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SponsorsInfo" EntityType="Self.SponsorsInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SrcInfo" EntityType="Self.SrcInfo" Schema="dbo" store:Type="Tables" />
@@ -75,6 +87,7 @@
           <EntitySet Name="SrcInfo" EntityType="DayUpModel.SrcInfo" />
           <EntitySet Name="UserInfo" EntityType="DayUpModel.UserInfo" />
           <EntitySet Name="CollectionInfo" EntityType="DayUpModel.CollectionInfo" />
+          <EntitySet Name="CommenInfo" EntityType="DayUpModel.CommenInfo" />
         </EntityContainer>
         <EntityType Name="ContentInfo">
           <Key>
@@ -115,8 +128,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="userpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="userinto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="CollectionInfo">
@@ -128,6 +141,17 @@
           <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="content_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommenInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" Nullable="false" />
+          <Property Name="contentid" Type="Int32" Nullable="false" />
+          <Property Name="url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="commen" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -189,6 +213,18 @@
                 <ScalarProperty Name="url" ColumnName="url" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommenInfo">
+            <EntityTypeMapping TypeName="DayUpModel.CommenInfo">
+              <MappingFragment StoreEntitySet="CommenInfo">
+                <ScalarProperty Name="commen" ColumnName="commen" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="contentid" ColumnName="contentid" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

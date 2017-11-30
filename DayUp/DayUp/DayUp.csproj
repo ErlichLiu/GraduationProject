@@ -171,6 +171,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CollectionInfoesController.cs" />
+    <Compile Include="Controllers\CommenInfoesController.cs" />
     <Compile Include="Controllers\ContentInfoesmanageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -179,6 +180,7 @@
     <Compile Include="Controllers\UserInfoesController.cs" />
     <Compile Include="Dal\ContentSearch.cs" />
     <Compile Include="Dal\MatchCollectionList.cs" />
+    <Compile Include="Dal\MatchComment.cs" />
     <Compile Include="Dal\MatchSponsors.cs" />
     <Compile Include="Dal\UserInfo.cs" />
     <Compile Include="Global.asax.cs">
@@ -186,6 +188,9 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CollectionInfo.cs">
+      <DependentUpon>DayUpData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CommenInfo.cs">
       <DependentUpon>DayUpData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ContentInfo.cs">
@@ -355,6 +360,11 @@
     <Content Include="Views\SrcInfoes\Details.cshtml" />
     <Content Include="Views\SrcInfoes\Edit.cshtml" />
     <Content Include="Views\SrcInfoes\Index.cshtml" />
+    <Content Include="Views\CommenInfoes\Create.cshtml" />
+    <Content Include="Views\CommenInfoes\Delete.cshtml" />
+    <Content Include="Views\CommenInfoes\Details.cshtml" />
+    <Content Include="Views\CommenInfoes\Edit.cshtml" />
+    <Content Include="Views\CommenInfoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
