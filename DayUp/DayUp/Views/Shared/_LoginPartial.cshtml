@@ -55,7 +55,7 @@
 
     }
 </style>*@
-@if (Request.Cookies != null)
+@if (Session["userID"] != null)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {

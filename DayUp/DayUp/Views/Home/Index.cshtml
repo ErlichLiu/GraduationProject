@@ -135,7 +135,7 @@
     }
     .latter{
         position:absolute;
-        right:57px;
+        right:37px;
         bottom:7px;
     }
 </style>
@@ -198,11 +198,11 @@
                     count++;
                     html += "<div class = 'subcontent'><img src = '" + data[i].picurl + "' \
                              class = 'imageab'/><div class ='contentlinkebox'><h4 class = 'contenttitle'>\
-                            <a href = '" + data[i].url + "'>" + data[i].title + "</a></h4></div>\
+                            <a href = '" + data[i].url + "' style='color:black;background-color:rgba(255,255,255,0.7)'>" + data[i].title + "</a></h4></div>\
                             <div class = 'contentpbox'><p class = 'contentsummary'>" + data[i].summary + "</p>\
                             </div><div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div>\
                             <div class = 'latter'><button onclick=\"like(\'" + data[i].id + "\')\">+</button></div>\
-                            <div class = 'like'><button onclick=\"latter(\'" + data[i].id + "\')\">收藏</button></div></div>";
+                            <div class = 'like'><button onclick=\"latter(\'" + data[i].id + "\')\">❤</button></div></div>";
                     if(count > 10){
                         break;
                     }
@@ -242,7 +242,7 @@
                     for (i = 0; i < data.length; i++) {
                         count++;
                         html += "<div class = 'subcontent'><img src = '" + data[i].picurl + "' class = 'imageab'/>\
-                                <div class ='contentlinkebox'><h4 class = 'contenttitle'><a href = '" + data[i].url + "'>" + data[i].title + "</a>\
+                                <div class ='contentlinkebox'><h4 class = 'contenttitle'><a href = '" + data[i].url + "'style='color:black;background-color:rgba(255,255,255,0.7)'>" + data[i].title + "</a>\
                                 </h4></div><div class = 'contentpbox'><p class = 'contentsummary'>" + data[i].summary + "</p></div>\
                                 <div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div></div>";
                     }
@@ -259,10 +259,11 @@
                 var html = "";
                 for (i = 0; i < data.length; i++) {
                     html += "<div class = 'subcontent'><img src = '" + data[i].picurl + "' class = 'imageab'/>\
-                            <div class ='contentlinkebox'><h4 class = 'contenttitle'><a href = '" + data[i].url + "'>" + data[i].title + "</a></h4>\
+                            <div class ='contentlinkebox'><h4 class = 'contenttitle'><a href = '" + data[i].url + "'style='color:black;background-color:rgba(255,255,255,0.7)'>" + data[i].title + "</a></h4>\
                             </div><div class = 'contentpbox'><p class = 'contentsummary'>" + data[i].summary + "</p></div>\
                             <div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div>\
-                            <div class = 'like'><button onclick=\"like(\'" + data[i].id + "\')\">收藏</button></div></div>";
+                            <div class = 'latter'><button onclick=\"like(\'" + data[i].id + "\')\">+</button></div>\
+                            <div class = 'like'><button onclick=\"latter(\'" + data[i].id + "\')\">❤</button></div></div>";
                 }
                 $(".content").html(html);
             }
@@ -300,11 +301,11 @@
 
         $.ajax({
             type: "POST",
-            url: "/CommenInfo/Create",
+            url: "/CommenInfoes/Create",
             data: {
                 //user_id: "1",
-                user_id: getCookies("userID"),
-                content_id: id
+                userid: getCookies("userID"),
+                contentid: id
             },
             success: function (msg) {
                 if (msg == "OK") {

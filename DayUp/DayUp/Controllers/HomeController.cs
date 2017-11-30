@@ -1,7 +1,9 @@
 ﻿using DayUp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -9,6 +11,7 @@ namespace DayUp.Controllers
 {
     public class HomeController : Controller
     {
+        private DayUpEntities1 db = new DayUpEntities1();
         public ActionResult Index()
         {
             return View();
@@ -87,7 +90,15 @@ namespace DayUp.Controllers
         [HttpPost]
         public ActionResult MatchUser(string username,string userpassword)
         {
-            return Json(Dal.UserInfo.MatchUser(username,userpassword),JsonRequestBehavior.AllowGet);
+            if(Dal.UserInfo.MatchUser(username,userpassword) != null)
+            {
+                var data = Dal.UserInfo.MatchUser(username, userpassword);
+                int id = data.id;
+                Session["userID"] = id;
+                return Json(Dal.UserInfo.MatchUser(username,userpassword),JsonRequestBehavior.AllowGet);
+            }
+            return Json(1,JsonRequestBehavior.AllowGet);
+            
         }
 
         /// <summary>
@@ -96,7 +107,15 @@ namespace DayUp.Controllers
         /// <returns></returns>
         public ActionResult CollectionList()
         {
-            return View();
+            if (Session["userID"]!= null)
+            {
+                return View();
+            }  else
+            {
+
+                return Content("请您登录后查看！");
+            }
+            
         }
 
         /// <summary>
@@ -106,8 +125,17 @@ namespace DayUp.Controllers
         /// <returns></returns>
         public ActionResult GetYourList(string ids)
         {
-            int id = Convert.ToInt16(ids);
-            return Json(Dal.MatchCollectionList.MatchYourList(id),JsonRequestBehavior.AllowGet);
+            int id = Convert.ToInt16(Session["userID"].ToString());
+            if(id != null)
+            {
+                return Json(Dal.MatchCollectionList.MatchYourList(id), JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Content("请您登录后查看！");
+            }
+            //int id = Convert.ToInt16(ids);
+            
         }
 
         /// <summary>
@@ -156,5 +184,78 @@ namespace DayUp.Controllers
                        select na.username).FirstOrDefault();
             return Content(name);
         }
+        public ActionResult ShowComment()
+        {
+            return View();
+        }
+
+        public ActionResult YourComment()
+        {
+            int id =Convert.ToInt16(Session["userID"].ToString());
+            if (id != null)
+            {
+                return View(Dal.Testin.MatchYourComment(id));
+            }
+             else
+            {
+                return Content("请您登录后查看");
+            }
+        }
+        
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            CommenInfo commenInfo = db.CommenInfo.Find(id);
+            if (commenInfo == null)
+            {
+                return HttpNotFound();
+            }
+            // return Action ;
+            return View(commenInfo);
+        }
+
+        // POST: CommenInfoes/Edit/5
+        // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
+        // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "id,userid,contentid,url,title,commen")] CommenInfo commenInfo)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(commenInfo).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("YourComment");
+            }
+            return View(commenInfo);
+        }
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            CommenInfo commenInfo = db.CommenInfo.Find(id);
+            if (commenInfo == null)
+            {
+                return HttpNotFound();
+            }
+            return View(commenInfo);
+        }
+
+        // POST: CommenInfoes/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            CommenInfo commenInfo = db.CommenInfo.Find(id);
+            db.CommenInfo.Remove(commenInfo);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }

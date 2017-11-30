@@ -59,16 +59,23 @@ namespace DayUp.Controllers
         //}
         public ActionResult Create(string userid,string contentid)
         {
+            int cid = Convert.ToInt16(contentid);
+            int content_id = Convert.ToInt16(contentid);
             CommenInfo ci = new CommenInfo();
             if(ModelState.IsValid)
             {
+                
+                int id=0;
                 int uid = Convert.ToInt16(userid);
-                int cid = Convert.ToInt16(contentid);
-
-                ci.userid = uid;
+                
+                if (Convert.ToInt16(Session["userID"].ToString()) != null)
+                {
+                    id = Convert.ToInt16(Session["userID"].ToString());
+                }
+                
                 ci.contentid = cid;
 
-                var data = (from c in db.CommenInfo
+                var data = (from c in db.ContentInfo
                             where c.id == cid
                             select c).FirstOrDefault();
                 if(data != null)
@@ -99,6 +106,7 @@ namespace DayUp.Controllers
             {
                 return HttpNotFound();
             }
+           // return Action ;
             return View(commenInfo);
         }
 

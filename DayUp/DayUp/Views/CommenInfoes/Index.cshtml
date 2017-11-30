@@ -9,32 +9,35 @@
 
 <table class="table">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.userid)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.contentid)
+        </th>*@
+        <th>
+            地址
+            @*@Html.DisplayNameFor(model => model.url)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.url)
+            标题
+            @*@Html.DisplayNameFor(model => model.title)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.commen)
+            闪念
+            @*@Html.DisplayNameFor(model => model.commen)*@
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.userid)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.contentid)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.url)
         </td>
@@ -45,9 +48,9 @@
             @Html.DisplayFor(modelItem => item.commen)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("添加闪念", "Edit", new { id=item.id }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.id }) |*@
+            @Html.ActionLink("删除", "Delete", new { id=item.id })
         </td>
     </tr>
 }

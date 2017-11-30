@@ -182,6 +182,7 @@
     <Compile Include="Dal\MatchCollectionList.cs" />
     <Compile Include="Dal\MatchComment.cs" />
     <Compile Include="Dal\MatchSponsors.cs" />
+    <Compile Include="Dal\Testin.cs" />
     <Compile Include="Dal\UserInfo.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -233,6 +234,12 @@
     <Content Include="File\1129opaul grahambig.jpg" />
     <Content Include="File\1129zheglittle.png" />
     <Content Include="File\1129zhehgebig.png" />
+    <Content Include="File\1130applebig.jpg" />
+    <Content Include="File\1130applelittle.png" />
+    <Content Include="File\1130yitaibibig.png" />
+    <Content Include="File\1130yitaibilittle.png" />
+    <Content Include="File\1130yitianshijiebig.png" />
+    <Content Include="File\1130yitianshijielittle.png" />
     <Content Include="File\29zinebig.png" />
     <Content Include="File\29zinelittle.png" />
     <Content Include="File\background-imag.png" />
@@ -365,6 +372,11 @@
     <Content Include="Views\CommenInfoes\Details.cshtml" />
     <Content Include="Views\CommenInfoes\Edit.cshtml" />
     <Content Include="Views\CommenInfoes\Index.cshtml" />
+    <Content Include="Views\Home\ShowYourComment.cshtml" />
+    <Content Include="Views\Home\ShowComment.cshtml" />
+    <Content Include="Views\Home\YourComment.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Home\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

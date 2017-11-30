@@ -20,7 +20,7 @@ namespace DayUp.Dal
             }
             else
             {
-                return 1;
+                return null;
             }
         }
     }

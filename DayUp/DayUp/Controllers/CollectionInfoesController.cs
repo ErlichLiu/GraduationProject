@@ -52,10 +52,14 @@ namespace DayUp.Controllers
             CollectionInfo ci = new CollectionInfo();
             if (ModelState.IsValid)
             {
+                int id = 0;
                 int userid = Convert.ToInt16(user_id);
                 int contentid = Convert.ToInt16(content_id);
-               
-                ci.user_id = userid;
+                if( Convert.ToInt16(Session["userID"].ToString())!=null)
+                {
+                    id = Convert.ToInt16(Session["userID"].ToString());
+                }
+                ci.user_id = id;
                 ci.content_id = contentid;
                 var data = (from c in db.ContentInfo
                            where c.id == contentid

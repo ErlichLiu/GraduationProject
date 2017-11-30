@@ -27,11 +27,6 @@
         }
     }
     function Del(id) {
-        if (getCookies("userID") == null) {
-            alert("请登陆后再删除！");
-            return;
-        } else {
-
             $.ajax({
                 type: "POST",
                 url: "/Home/DelLike",
@@ -46,11 +41,11 @@
                         location.reload(true);
                     }
                     else {
-                        alert("删除失败!");
+                        alert("删除失败!请检查您是否登录");
                     }
                 }
             });
-        }
+        
     }
 </script>
 <h2>收藏夹</h2>

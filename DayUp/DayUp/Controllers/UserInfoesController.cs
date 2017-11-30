@@ -59,7 +59,7 @@ namespace DayUp.Controllers
                 {
                     db.UserInfo.Add(userInfo);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Logon","Home/Logon");
                 }
             }
 
