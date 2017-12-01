@@ -134,7 +134,6 @@ namespace DayUp.Controllers
             {
                 return Content("请您登录后查看！");
             }
-            //int id = Convert.ToInt16(ids);
             
         }
 

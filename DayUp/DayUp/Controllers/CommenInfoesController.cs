@@ -68,12 +68,10 @@ namespace DayUp.Controllers
                 int id=0;
                 int uid = Convert.ToInt16(userid);
                 
-                if (Convert.ToInt16(Session["userID"].ToString()) != null)
+                if (Session["userID"].ToString() != null)
                 {
                     id = Convert.ToInt16(Session["userID"].ToString());
                 }
-                
-                ci.contentid = cid;
 
                 var data = (from c in db.ContentInfo
                             where c.id == cid
@@ -82,6 +80,8 @@ namespace DayUp.Controllers
                 {
                     ci.title = data.title;
                     ci.url = data.url;
+                    ci.userid = id;
+                    ci.contentid = cid;
                 }
                 else
                 {
