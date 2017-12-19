@@ -38,7 +38,7 @@
     .ranking {
         position: relative;
         float: left;
-        height: 2000px;
+        height: 100%;
         width: 15%;
         background-color: azure;
     }
@@ -46,16 +46,16 @@
     .content {
         position: relative;
         float: left;
-        height: 2000px;
+        height: 100%;
         width: 60%;
     }
 
     .sponors {
         position: relative;
         float: left;
-        height: 2000px;
+        height: 100%;
         width: 25%;
-        background-color: antiquewhite;
+        background-color:azure;
     }
 
     .sponorslogo {
@@ -85,7 +85,7 @@
         /*position:absolute;*/
         text-align: center;
         /*top:120px;*/
-        color: darkgray;
+        color: white;
         font-family: cursive;
     }
 
@@ -106,7 +106,7 @@
     .contentlinkebox {
         position: absolute;
         width: 150px;
-        top: 50px;
+        top: 30px;
     }
 
     .contentpbox {
@@ -131,6 +131,11 @@
     .like{
         position:absolute;
         right:7px;
+        bottom:7px;
+    }
+    .latter{
+        position:absolute;
+        right:37px;
         bottom:7px;
     }
 </style>
@@ -193,11 +198,12 @@
                     count++;
                     html += "<div class = 'subcontent'><img src = '" + data[i].picurl + "' \
                              class = 'imageab'/><div class ='contentlinkebox'><h4 class = 'contenttitle'>\
-                            <a href = '" + data[i].url + "'>" + data[i].title + "</a></h4></div>\
+                            <a href = '" + data[i].url + "' style='color:black;background-color:rgba(255,255,255,0.7)'>" + data[i].title + "</a></h4></div>\
                             <div class = 'contentpbox'><p class = 'contentsummary'>" + data[i].summary + "</p>\
                             </div><div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div>\
-                            <div class = 'like'><button onclick=\"like(\'" + data[i].id + "\')\">收藏</button></div></div>";
-                    if(count > 10){
+                            <div class = 'latter'><button onclick=\"like(\'" + data[i].id + "\')\">+</button></div>\
+                            <div class = 'like'><button onclick=\"latter(\'" + data[i].id + "\')\">❤</button></div></div>";
+                    if(count > 16){
                         break;
                     }
                 }
@@ -236,7 +242,7 @@
                     for (i = 0; i < data.length; i++) {
                         count++;
                         html += "<div class = 'subcontent'><img src = '" + data[i].picurl + "' class = 'imageab'/>\
-                                <div class ='contentlinkebox'><h4 class = 'contenttitle'><a href = '" + data[i].url + "'>" + data[i].title + "</a>\
+                                <div class ='contentlinkebox'><h4 class = 'contenttitle'><a href = '" + data[i].url + "'style='color:black;background-color:rgba(255,255,255,0.7)'>" + data[i].title + "</a>\
                                 </h4></div><div class = 'contentpbox'><p class = 'contentsummary'>" + data[i].summary + "</p></div>\
                                 <div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div></div>";
                     }
@@ -253,10 +259,11 @@
                 var html = "";
                 for (i = 0; i < data.length; i++) {
                     html += "<div class = 'subcontent'><img src = '" + data[i].picurl + "' class = 'imageab'/>\
-                            <div class ='contentlinkebox'><h4 class = 'contenttitle'><a href = '" + data[i].url + "'>" + data[i].title + "</a></h4>\
+                            <div class ='contentlinkebox'><h4 class = 'contenttitle'><a href = '" + data[i].url + "'style='color:black;background-color:rgba(255,255,255,0.7)'>" + data[i].title + "</a></h4>\
                             </div><div class = 'contentpbox'><p class = 'contentsummary'>" + data[i].summary + "</p></div>\
                             <div class = 'contenttimebox'><p class = 'contentdatetime'>" + data[i].time + "</p></div>\
-                            <div class = 'like'><button onclick=\"like(\'" + data[i].id + "\')\">收藏</button></div></div>";
+                            <div class = 'latter'><button onclick=\"like(\'" + data[i].id + "\')\">+</button></div>\
+                            <div class = 'like'><button onclick=\"latter(\'" + data[i].id + "\')\">❤</button></div></div>";
                 }
                 $(".content").html(html);
             }
@@ -264,7 +271,7 @@
     }
     function like(id) {
         if (getCookies("userID") == null) {
-            alert("请登陆后再收藏！");
+            alert("请登陆后再添加稍后阅读！");
             return;
         }
 
@@ -275,6 +282,30 @@
                 //user_id: "1",
                 user_id: getCookies("userID"),
                 content_id: id
+            },
+            success: function (msg) {
+                if (msg == "OK") {
+                    alert("添加成功!");
+                }
+                else {
+                    alert("添加失败!");
+                }
+            }
+        });
+    }
+    function latter(id) {
+        if (getCookies("userID") == null) {
+            alert("请登陆后再收藏！");
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/CommenInfoes/Create",
+            data: {
+                //user_id: "1",
+                userid: getCookies("userID"),
+                contentid: id
             },
             success: function (msg) {
                 if (msg == "OK") {

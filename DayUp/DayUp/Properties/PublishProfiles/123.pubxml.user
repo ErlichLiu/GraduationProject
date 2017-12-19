@@ -13,7 +13,7 @@
       <publishTime>02/22/2013 08:43:40</publishTime>
     </File>
     <File Include="bin/DayUp.dll">
-      <publishTime>11/28/2017 14:58:39</publishTime>
+      <publishTime>12/06/2017 21:39:28</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/02/2015 09:32:26</publishTime>
@@ -201,14 +201,128 @@
     <File Include="File/100person.gif">
       <publishTime>11/20/2017 15:34:46</publishTime>
     </File>
+    <File Include="File/11290paulgrahamlittle.jpg">
+      <publishTime>11/29/2017 12:01:37</publishTime>
+    </File>
+    <File Include="File/1129opaul grahambig.jpg">
+      <publishTime>11/29/2017 12:01:11</publishTime>
+    </File>
+    <File Include="File/1129zheglittle.png">
+      <publishTime>11/29/2017 11:46:29</publishTime>
+    </File>
+    <File Include="File/1129zhehgebig.png">
+      <publishTime>11/29/2017 11:46:29</publishTime>
+    </File>
+    <File Include="File/1130applebig.jpg">
+      <publishTime>11/30/2017 21:27:30</publishTime>
+    </File>
+    <File Include="File/1130applelittle.png">
+      <publishTime>11/30/2017 21:28:08</publishTime>
+    </File>
+    <File Include="File/1130yitaibibig.png">
+      <publishTime>11/30/2017 21:29:12</publishTime>
+    </File>
+    <File Include="File/1130yitaibilittle.png">
+      <publishTime>11/30/2017 21:29:45</publishTime>
+    </File>
+    <File Include="File/1130yitianshijiebig.png">
+      <publishTime>11/30/2017 21:05:12</publishTime>
+    </File>
+    <File Include="File/1130yitianshijielittle.png">
+      <publishTime>11/30/2017 21:05:12</publishTime>
+    </File>
+    <File Include="File/1203yuedubig.png">
+      <publishTime>12/03/2017 14:00:33</publishTime>
+    </File>
+    <File Include="File/1203yuedulittle.png">
+      <publishTime>12/03/2017 14:00:53</publishTime>
+    </File>
+    <File Include="File/29zinebig.png">
+      <publishTime>11/29/2017 10:15:37</publishTime>
+    </File>
+    <File Include="File/29zinelittle.png">
+      <publishTime>11/29/2017 10:15:37</publishTime>
+    </File>
+    <File Include="File/background-imag.png">
+      <publishTime>11/29/2017 15:59:46</publishTime>
+    </File>
+    <File Include="File/beiqia.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
     <File Include="File/ceshi.png">
       <publishTime>11/21/2017 10:27:18</publishTime>
+    </File>
+    <File Include="File/dedao.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/duku.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/eico.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/fendui.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/ing.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
     </File>
     <File Include="File/jiehh.png">
       <publishTime>11/21/2017 10:11:07</publishTime>
     </File>
+    <File Include="File/jikeshijian.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/jinshuju.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/lagou.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
     <File Include="File/lantouzi.png">
       <publishTime>11/20/2017 17:07:23</publishTime>
+    </File>
+    <File Include="File/liulishuo.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/mingdao.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/shimo.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/shumalizhi.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/switch.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/ucloud.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/wegeng.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/yingdongziben.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/yiqixie.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/youpaiyun.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/youzan.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/zhiren.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/zhishixingqiu.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
+    </File>
+    <File Include="File/zongguanjia.png">
+      <publishTime>11/29/2017 11:16:06</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
       <publishTime>11/18/2017 13:13:51</publishTime>
@@ -226,7 +340,7 @@
       <publishTime>11/18/2017 13:13:47</publishTime>
     </File>
     <File Include="Models/DayUpData.edmx.diagram">
-      <publishTime>11/25/2017 10:14:46</publishTime>
+      <publishTime>11/30/2017 15:06:24</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>11/18/2017 13:14:12</publishTime>
@@ -322,7 +436,22 @@
       <publishTime>11/25/2017 09:05:46</publishTime>
     </File>
     <File Include="Views/CollectionInfoes/Index.cshtml">
-      <publishTime>11/25/2017 10:45:19</publishTime>
+      <publishTime>11/30/2017 15:34:46</publishTime>
+    </File>
+    <File Include="Views/CommenInfoes/Create.cshtml">
+      <publishTime>11/30/2017 15:08:01</publishTime>
+    </File>
+    <File Include="Views/CommenInfoes/Delete.cshtml">
+      <publishTime>11/30/2017 15:08:01</publishTime>
+    </File>
+    <File Include="Views/CommenInfoes/Details.cshtml">
+      <publishTime>11/30/2017 15:08:02</publishTime>
+    </File>
+    <File Include="Views/CommenInfoes/Edit.cshtml">
+      <publishTime>11/30/2017 15:08:02</publishTime>
+    </File>
+    <File Include="Views/CommenInfoes/Index.cshtml">
+      <publishTime>11/30/2017 21:34:09</publishTime>
     </File>
     <File Include="Views/ContentInfoesmanage/Create.cshtml">
       <publishTime>11/25/2017 15:14:07</publishTime>
@@ -343,25 +472,40 @@
       <publishTime>11/18/2017 13:13:47</publishTime>
     </File>
     <File Include="Views/Home/CollectionList.cshtml">
-      <publishTime>11/25/2017 12:06:31</publishTime>
+      <publishTime>12/01/2017 02:18:51</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
       <publishTime>11/18/2017 13:13:47</publishTime>
     </File>
+    <File Include="Views/Home/Delete.cshtml">
+      <publishTime>11/30/2017 23:59:17</publishTime>
+    </File>
+    <File Include="Views/Home/Edit.cshtml">
+      <publishTime>12/01/2017 07:54:01</publishTime>
+    </File>
     <File Include="Views/Home/GetYourList.cshtml">
-      <publishTime>11/25/2017 11:17:22</publishTime>
+      <publishTime>11/30/2017 22:29:43</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>11/25/2017 14:54:39</publishTime>
+      <publishTime>12/03/2017 14:12:22</publishTime>
     </File>
     <File Include="Views/Home/LikeList.cshtml">
       <publishTime>11/25/2017 11:05:54</publishTime>
     </File>
     <File Include="Views/Home/Logon.cshtml">
-      <publishTime>11/25/2017 14:11:23</publishTime>
+      <publishTime>12/01/2017 01:32:38</publishTime>
     </File>
     <File Include="Views/Home/Manager.cshtml">
-      <publishTime>11/25/2017 12:17:36</publishTime>
+      <publishTime>12/01/2017 01:05:49</publishTime>
+    </File>
+    <File Include="Views/Home/ShowComment.cshtml">
+      <publishTime>11/30/2017 23:05:30</publishTime>
+    </File>
+    <File Include="Views/Home/ShowYourComment.cshtml">
+      <publishTime>11/30/2017 22:39:15</publishTime>
+    </File>
+    <File Include="Views/Home/YourComment.cshtml">
+      <publishTime>12/01/2017 02:18:51</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>11/18/2017 13:14:04</publishTime>
@@ -388,10 +532,10 @@
       <publishTime>11/18/2017 13:14:04</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/25/2017 11:25:18</publishTime>
+      <publishTime>12/01/2017 01:04:37</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
-      <publishTime>11/25/2017 14:57:48</publishTime>
+      <publishTime>12/01/2017 00:51:10</publishTime>
     </File>
     <File Include="Views/SponsorsInfoes/Create.cshtml">
       <publishTime>11/25/2017 09:47:03</publishTime>
@@ -424,7 +568,7 @@
       <publishTime>11/25/2017 12:17:17</publishTime>
     </File>
     <File Include="Views/UserInfoes/Create.cshtml">
-      <publishTime>11/25/2017 10:20:06</publishTime>
+      <publishTime>12/01/2017 01:21:41</publishTime>
     </File>
     <File Include="Views/UserInfoes/Delete.cshtml">
       <publishTime>11/25/2017 09:51:23</publishTime>

@@ -12,48 +12,108 @@
                 username: $("#userName").val(),
                 userpassword: $("#password").val()
             },
-            dataType:"json",
+            //dataType: "json",
             success: function (msg) {
-
-                if(msg != 1)
-                {
+                if (msg != 1) {
                     setCookies("userID", msg.id);
                     alert("登陆成功！");
-                    if(msg.username == "Admin"){
-                        window.location="/Home/Manager";
-                    }else
-                    {
-                        window.location="/Home/Index";
+                    if (msg.username == "Admin") {
+                        window.location = "/Home/Manager";
+                    } else {
+                        window.location = "/Home/Index";
                     }
                 }else
                 {
                     alert("用户名或密码错误，请重新登陆");
                 }
+                
             }
         })
     }
 </script>
-<h2>登陆</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            <h4>使用本地帐户登录。</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                <label class="col-md-2 control-label">用户名：</label>
-                <div class="col-md-10">
-                    <input type="text" id="userName" />
+
+<style>
+    body {
+        background-image: url('../../File/background-imag.png');
+    }
+</style>
+<center><h2>登陆</h2></center>
+<center>
+    <div class="row" style="background-color:aquamarine">
+        <center>
+            <table style="border-radius:10px;position:absolute;top:50%;left:40%">
+                <tr>
+                    <td>
+                        <p style="color:rgba(255,255,255,0.9)">用户名:</p>
+                    </td>
+                    <td>
+                        <input type="text" id="userName" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p style="color:rgba(255,255,255,0.9)">密 码：</p>
+                    </td>
+                    <td>
+                        <input type="password" id="password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <center>
+                            <input type="button" value="登录" onclick="logon()" /> @Html.ActionLink("还没有账号？", "Create", "UserInfoes")
+                        </center >
+                    </td >
+                </tr >
+            </table >
+            @*<div class="col-md-8">
+                <h4>使用本地帐户登录。</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label class="col-md-2 control-label">用户名：</label>
+                    <div class="col-md-10">
+                        <input type="text" id="userName" />
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-2 control-label">密码</label>
-                <div class="col-md-10">
-                    <input type="password" id="password" />
+                <div class="form-group">
+                    <label class="col-md-2 control-label">密码</label>
+                    <div class="col-md-10">
+                        <input type="password" id="password" />
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="button" value="登录" onclick="logon()" />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="button" value="登录" onclick="logon()" />
+                    </div>
                 </div>
-            </div>
+            </div>*@
+        </center>
+    </div>
+</center>
+
+@*<center>
+        <div class="row">
+            <div class="col-md-8">
+                <section id="loginForm">
+                    <h4>使用本地帐户登录。</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">用户名：</label>
+                        <div class="col-md-10">
+                            <input type="text" id="userName" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">密码</label>
+                        <div class="col-md-10">
+                            <input type="password" id="password" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="button" value="登录" onclick="logon()" />
+                        </div>
+                    </div>
+    </center>*@

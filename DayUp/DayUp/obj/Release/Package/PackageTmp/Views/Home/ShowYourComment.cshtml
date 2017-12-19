@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "ShowYourComment";
+}
+<script>
+    $(function () {
+        YourList();
+    })
+    function YourList() {
+        if (getCookies("userID") == null) {
+            alert("登陆后查看闪念！");
+            return;
+        } else {
+            $.ajax({
+                type: "POST",
+                url: "/Home/ShowYourComment",
+                data: { ids: getCookies("userID") },
+                success: function (data) {
+                    var html = "<tr><th>内容标题</th><th>链接</th><th>闪念</th><th>你的闪念</th><th>删除</th></tr>";
+                    for (var i = 0; i < data.length; i++) {
+                        html += "<tr><td>" + data[i].title + "</td> <td>" + data[i].rul + "</td><td>" + data[i].commen + "</td><td><button onlick = \"Add('" + data[i].id + "')\">添加</button></td><td><button onlick = \"Del('" + data[i].id + "')\">删除</button></td></tr>";
+                    }
+                    $("#tablelist").html(html);
+                }
+            });
+        }
+    }
+    function Del(id) {
+        if (getCookies("userID") == null) {
+            alert("请登陆后再删除！");
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/DelYourComment/Home",
+            data: {
+                //user_id: "1",
+                id: id
+            },
+            success: function (msg) {
+                if (msg == "OK") {
+                    alert("删除成功!");
+                }
+                else {
+                    alert("删除失败!");
+                }
+            }
+        });
+    }
+    function Add(id) {
+        if (getCookies("userID") == null) {
+            alert("请登陆后再添加！");
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/CommenInfoes/Edit",
+            data: {
+                //user_id: "1",
+                id: id
+            },
+            success: function (msg) {
+                if (msg == "OK") {
+                    alert("添加成功!");
+                }
+                else {
+                    alert("添加失败!");
+                }
+            }
+        });
+    }
+</script>
+
+<h2>你的闪念清单</h2>
+<table class="table" id="tablelist"></table>
+

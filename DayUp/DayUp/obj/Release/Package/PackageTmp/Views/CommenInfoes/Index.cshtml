@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DayUp.Models.CommenInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>您的收藏夹</h2>
+
+
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.userid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contentid)
+        </th>*@
+        <th>
+            地址
+            @*@Html.DisplayNameFor(model => model.url)*@
+        </th>
+        <th>
+            标题
+            @*@Html.DisplayNameFor(model => model.title)*@
+        </th>
+        <th>
+            闪念
+            @*@Html.DisplayNameFor(model => model.commen)*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.userid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contentid)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.url)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.commen)
+        </td>
+        <td>
+            @Html.ActionLink("添加闪念", "Edit", new { id=item.id }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.id }) |*@
+            @Html.ActionLink("删除", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

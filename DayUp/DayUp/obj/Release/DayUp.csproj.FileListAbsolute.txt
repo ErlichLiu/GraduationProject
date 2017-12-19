@@ -85,3 +85,4 @@ C:\GraduationProject\DayUp\DayUp\bin\zh-Hans\Microsoft.Owin.Security.Twitter.res
 C:\GraduationProject\DayUp\DayUp\bin\zh-Hans\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 C:\GraduationProject\DayUp\DayUp\obj\Release\DayUp.dll
 C:\GraduationProject\DayUp\DayUp\obj\Release\DayUp.pdb
+C:\GraduationProject\DayUp\DayUp\obj\Release\DayUp.csprojResolveAssemblyReference.cache

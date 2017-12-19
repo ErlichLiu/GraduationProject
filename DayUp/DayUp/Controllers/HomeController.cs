@@ -30,7 +30,7 @@ namespace DayUp.Controllers
 
             return View();
         }
-        
+
         /// <summary>
         /// 获得 Banner 的数据
         /// </summary>
@@ -39,7 +39,7 @@ namespace DayUp.Controllers
         public ActionResult GetBannerData()
         {
 
-            return Json(Dal.ContentSearch.GetBannerData(),JsonRequestBehavior.AllowGet);
+            return Json(Dal.ContentSearch.GetBannerData(), JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace DayUp.Controllers
         [HttpPost]
         public ActionResult GetRankingData()
         {
-            return Json(Dal.ContentSearch.GetRankingData(),JsonRequestBehavior.AllowGet);
+            return Json(Dal.ContentSearch.GetRankingData(), JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace DayUp.Controllers
         [HttpPost]
         public ActionResult GetSubContent()
         {
-            return Json(Dal.ContentSearch.GetSubContent(),JsonRequestBehavior.AllowGet);
+            return Json(Dal.ContentSearch.GetSubContent(), JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace DayUp.Controllers
         /// <returns></returns>
         public ActionResult MatchSponsors()
         {
-            return Json(Dal.MatchSponsors.MatchSponsorsLogos(),JsonRequestBehavior.AllowGet);
+            return Json(Dal.MatchSponsors.MatchSponsorsLogos(), JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace DayUp.Controllers
         [HttpPost]
         public ActionResult GoSearch(string keyword)
         {
-            return Json(Dal.ContentSearch.GoSearch(keyword),JsonRequestBehavior.AllowGet);
+            return Json(Dal.ContentSearch.GoSearch(keyword), JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Logon()
@@ -88,17 +88,17 @@ namespace DayUp.Controllers
         }
 
         [HttpPost]
-        public ActionResult MatchUser(string username,string userpassword)
+        public ActionResult MatchUser(string username, string userpassword)
         {
-            if(Dal.UserInfo.MatchUser(username,userpassword) != null)
+            if (Dal.UserInfo.MatchUser(username, userpassword) != null)
             {
                 var data = Dal.UserInfo.MatchUser(username, userpassword);
                 int id = data.id;
                 Session["userID"] = id;
-                return Json(Dal.UserInfo.MatchUser(username,userpassword),JsonRequestBehavior.AllowGet);
+                return Json(Dal.UserInfo.MatchUser(username, userpassword), JsonRequestBehavior.AllowGet);
             }
-            return Json(1,JsonRequestBehavior.AllowGet);
-            
+            return Json(1, JsonRequestBehavior.AllowGet);
+
         }
 
         /// <summary>
@@ -107,15 +107,16 @@ namespace DayUp.Controllers
         /// <returns></returns>
         public ActionResult CollectionList()
         {
-            if (Session["userID"]!= null)
+            if (Session["userID"] != null)
             {
                 return View();
-            }  else
+            }
+            else
             {
 
                 return Content("请您登录后查看！");
             }
-            
+
         }
 
         /// <summary>
@@ -125,16 +126,17 @@ namespace DayUp.Controllers
         /// <returns></returns>
         public ActionResult GetYourList(string ids)
         {
-            int id = Convert.ToInt16(Session["userID"].ToString());
-            if(id != null)
+            //int id = Convert.ToInt16(Session["userID"].ToString());
+            if (Session["userID"] != null)
             {
+                int id = Convert.ToInt16(Session["userID"].ToString());
                 return Json(Dal.MatchCollectionList.MatchYourList(id), JsonRequestBehavior.AllowGet);
             }
             else
             {
                 return Content("请您登录后查看！");
             }
-            
+
         }
 
         /// <summary>
@@ -143,17 +145,17 @@ namespace DayUp.Controllers
         /// <param name="user_id"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        public ActionResult DelLike(string user_id,int id)
+        public ActionResult DelLike(string user_id, int id)
         {
             DayUpEntities1 db = new DayUpEntities1();
             //CollectionInfo ci = new CollectionInfo();
             //int userid = Convert.ToInt16(user_id);
             var dat = (from con in db.CollectionInfo
-                       where con.id==id
+                       where con.id == id
                        select con).FirstOrDefault();
-            if(dat != null)
+            if (dat != null)
             {
-               db.CollectionInfo.Remove(dat);
+                db.CollectionInfo.Remove(dat);
                 db.SaveChanges();
                 return Content("OK");
             }
@@ -164,7 +166,7 @@ namespace DayUp.Controllers
         /// 管理员页面
         /// </summary>
         /// <returns></returns>
-        
+
         public ActionResult Manager()
         {
             return View();
@@ -179,8 +181,8 @@ namespace DayUp.Controllers
         {
             DayUpEntities1 db = new DayUpEntities1();
             var name = (from na in db.UserInfo
-                       where na.id == id
-                       select na.username).FirstOrDefault();
+                        where na.id == id
+                        select na.username).FirstOrDefault();
             return Content(name);
         }
         public ActionResult ShowComment()
@@ -190,17 +192,18 @@ namespace DayUp.Controllers
 
         public ActionResult YourComment()
         {
-            int id =Convert.ToInt16(Session["userID"].ToString());
-            if (id != null)
+           // int id = Convert.ToInt16(Session["userID"].ToString());
+            if (Session["userID"] != null)
             {
+                int id = Convert.ToInt16(Session["userID"].ToString());
                 return View(Dal.Testin.MatchYourComment(id));
             }
-             else
+            else
             {
                 return Content("请您登录后查看");
             }
         }
-        
+
         public ActionResult Edit(int? id)
         {
             if (id == null)

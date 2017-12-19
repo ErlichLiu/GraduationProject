@@ -10,6 +10,7 @@
         <EntityTypeShape EntityType="DayUpModel.SrcInfo" Width="1.5" PointX="2.75" PointY="3.75" />
         <EntityTypeShape EntityType="DayUpModel.UserInfo" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="DayUpModel.CollectionInfo" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="DayUpModel.CommenInfo" Width="1.5" PointX="0.75" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
